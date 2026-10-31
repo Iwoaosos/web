@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0c">
+  <meta name="description" content="Arma tu próxima PC gamer: componentes de alto rendimiento, opciones calidad-precio y comparativas para cada presupuesto.">
+  <title>NEXUS PC — Potencia sin límites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Rajdhani', 'Inter', 'sans-serif']
+          },
+          colors: {
+            ink: '#0a0a0c',
+            panel: '#121216',
+            line: '#25252d',
+            neon: '#ff304f',
+            mint: '#20e3a2',
+            cyber: '#9b7bff'
+          },
+          boxShadow: {
+            redglow: '0 0 35px rgba(255,48,79,.18)',
+            greenglow: '0 0 35px rgba(32,227,162,.15)',
+            purpleglow: '0 0 35px rgba(155,123,255,.2)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root { color-scheme: dark; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { background:#0a0a0c; color:#f4f4f5; }
+    ::selection { background:rgba(255,48,79,.35); color:white; }
+    .grid-bg {
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom, black, transparent 92%);
+    }
+    .glass { background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018)); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.09); }
+    .card { transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease; }
+    .card:hover { transform:translateY(-6px); border-color:rgba(255,255,255,.22); }
+    .text-gradient { background:linear-gradient(100deg,#fff 10%,#ff6b80 58%,#ff304f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .text-mint-gradient { background:linear-gradient(100deg,#b7ffe5,#20e3a2); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .text-cyber-gradient { background:linear-gradient(100deg,#c9bcff,#66e6ff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .btn-primary { background:linear-gradient(110deg,#ff304f,#ff5b48); box-shadow:0 8px 28px rgba(255,48,79,.2); transition:.25s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 34px rgba(255,48,79,.35); }
+    .btn-outline { border:1px solid rgba(255,255,255,.16); transition:.25s; }
+    .btn-outline:hover { border-color:rgba(255,255,255,.45); background:rgba(255,255,255,.06); }
+    .hero-orb { filter:blur(65px); opacity:.32; }
+    .spec-chip { background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.09); }
+    .tab-active { color:white!important; background:rgba(255,48,79,.13)!important; border-color:rgba(255,48,79,.5)!important; }
+    .component-visual { background:radial-gradient(circle at 50% 42%,rgba(255,48,79,.17),transparent 58%),linear-gradient(145deg,#19191f,#101014); }
+    .green-visual { background:radial-gradient(circle at 50% 42%,rgba(32,227,162,.15),transparent 58%),linear-gradient(145deg,#151d1b,#101014); }
+    .cyber-visual { background:radial-gradient(circle at 50% 42%,rgba(155,123,255,.2),transparent 58%),linear-gradient(145deg,#1a1722,#101014); }
+    .gpu-fan { border:2px solid rgba(255,255,255,.22); box-shadow:inset 0 0 18px rgba(255,255,255,.08),0 0 22px rgba(255,48,79,.18); }
+    .gpu-fan:after { content:""; position:absolute; width:7px;height:7px;border-radius:50%;background:#ff526a;box-shadow:0 0 12px #ff304f; }
+    .modal-backdrop { background:rgba(0,0,0,.72); backdrop-filter:blur(8px); }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <!-- Header -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/[.07] bg-[#0a0a0c]/80 backdrop-blur-xl">
+    <nav class="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8" aria-label="Navegación principal">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Nexus PC, inicio">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-neon to-orange-500 shadow-redglow"><i data-lucide="cpu" class="h-5 w-5 text-white"></i></span>
+        <span class="font-display text-2xl font-bold tracking-[.12em]">NEXUS<span class="text-neon">.</span><span class="ml-1 text-sm font-semibold tracking-[.2em] text-zinc-500">PC</span></span>
+      </a>
+      <div class="hidden items-center gap-8 text-sm text-zinc-400 lg:flex">
+        <a class="transition hover:text-white" href="#tope-gama">Topes de gama</a>
+        <a class="transition hover:text-white" href="#economica">Gama de entrada</a>
+        <a class="transition hover:text-white" href="#comparativa">Comparativa</a>
+        <a class="transition hover:text-white" href="#calculadora">Calculadora</a>
+      </div>
+      <div class="hidden lg:block"><button class="btn-primary rounded-lg px-5 py-3 text-sm font-bold" data-open-quote>Cotizar PC <i data-lucide="arrow-up-right" class="ml-1 inline h-4 w-4"></i></button></div>
+      <button id="menuBtn" class="rounded-lg border border-white/10 p-2 text-zinc-300 lg:hidden" aria-label="Abrir menú" aria-expanded="false"><i data-lucide="menu"></i></button>
+    </nav>
+    <div id="mobileMenu" class="hidden border-t border-white/10 bg-[#101014] px-5 py-5 lg:hidden">
+      <div class="flex flex-col gap-4 text-sm text-zinc-300">
+        <a href="#tope-gama">Topes de gama</a><a href="#economica">Gama de entrada</a><a href="#comparativa">Comparativa</a><a href="#calculadora">Calculadora de presupuesto</a>
+        <button class="btn-primary rounded-lg px-4 py-3 font-bold" data-open-quote>Cotizar mi PC</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="inicio" class="relative isolate overflow-hidden pb-20 pt-32 sm:pt-40 lg:pb-28 lg:pt-44">
+      <div class="grid-bg absolute inset-0 -z-20"></div>
+      <div class="hero-orb absolute -left-32 top-24 -z-10 h-80 w-80 rounded-full bg-neon"></div>
+      <div class="hero-orb absolute right-0 top-40 -z-10 h-96 w-96 rounded-full bg-cyber"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-[1.02fr_.98fr] lg:px-8">
+        <div>
+          <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-neon/25 bg-neon/[.08] px-3 py-2 text-[11px] font-bold uppercase tracking-[.18em] text-rose-300">
+            <span class="h-2 w-2 animate-pulse rounded-full bg-neon"></span> Hardware. Rendimiento. Sin límites.
+          </div>
+          <h1 class="font-display text-5xl font-bold leading-[.98] tracking-tight sm:text-6xl lg:text-[5.2rem]">POTENCIA<br><span class="text-gradient">SIN LÍMITES</span><br><span class="text-zinc-400">PARA CADA</span><br>BOLSILLO<span class="text-neon">.</span></h1>
+          <p class="mt-7 max-w-xl text-base leading-7 text-zinc-400 sm:text-lg">Tu próxima PC empieza con una buena elección. Descubre configuraciones de alto rendimiento y opciones inteligentes para jugar al máximo sin pagar de más.</p>
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#tope-gama" class="btn-primary inline-flex items-center justify-center gap-2 rounded-lg px-6 py-4 text-sm font-bold">Ver topes de gama <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+            <a href="#economica" class="btn-outline inline-flex items-center justify-center gap-2 rounded-lg px-6 py-4 text-sm font-semibold text-zinc-200">Explorar gama económica <i data-lucide="chevron-down" class="h-4 w-4"></i></a>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 border-t border-white/10 pt-7">
+            <div><p class="font-display text-2xl font-bold">4K+</p><p class="text-xs text-zinc-500">Experiencia visual</p></div>
+            <div><p class="font-display text-2xl font-bold">144<span class="text-neon">+</span></p><p class="text-xs text-zinc-500">FPS competitivos*</p></div>
+            <div><p class="font-display text-2xl font-bold">100%</p><p class="text-xs text-zinc-500">A tu medida</p></div>
+          </div>
+          <p class="mt-3 text-[10px] text-zinc-600">*El rendimiento depende de los componentes, el juego y la configuración.</p>
+        </div>
+
+        <!-- CSS-built hardware illustration: no external image asset required -->
+        <div class="relative mx-auto w-full max-w-[590px]">
+          <div class="absolute inset-10 rounded-full bg-neon/10 blur-3xl"></div>
+          <div class="glass relative overflow-hidden rounded-[2rem] p-4 shadow-redglow sm:p-6">
+            <div class="mb-5 flex items-center justify-between">
+              <div><p class="text-[10px] font-bold uppercase tracking-[.25em] text-zinc-500">Nexus showcase / 001</p><p class="mt-1 text-sm font-semibold">ULTIMATE BATTLE STATION</p></div>
+              <span class="flex items-center gap-2 text-[10px] text-mint"><span class="h-2 w-2 rounded-full bg-mint shadow-[0_0_10px_#20e3a2]"></span> SYSTEM ONLINE</span>
+            </div>
+            <div class="relative flex aspect-[1.12/1] items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b10]">
+              <div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px"></div>
+              <div class="absolute bottom-0 left-1/2 h-24 w-3/4 -translate-x-1/2 rounded-full bg-neon/20 blur-3xl"></div>
+              <!-- PC tower -->
+              <div class="relative z-10 flex h-[78%] w-[47%] max-w-[230px] flex-col rounded-2xl border border-zinc-500/40 bg-gradient-to-br from-[#292932] via-[#17171e] to-[#09090c] p-3 shadow-2xl">
+                <div class="absolute -right-1 top-8 h-16 w-1 rounded-full bg-neon shadow-[0_0_12px_#ff304f]"></div>
+                <div class="relative flex-1 overflow-hidden rounded-xl border border-white/10 bg-[#0b0b11]">
+                  <div class="absolute inset-0 bg-gradient-to-br from-neon/10 via-transparent to-cyber/20"></div>
+                  <div class="absolute inset-x-3 top-3 h-[2px] bg-gradient-to-r from-transparent via-neon to-transparent opacity-80"></div>
+                  <div class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-3">
+                    <div class="gpu-fan relative grid h-20 w-20 place-items-center rounded-full sm:h-24 sm:w-24"><div class="h-12 w-12 rounded-full border border-neon/50 bg-neon/10 sm:h-14 sm:w-14"></div></div>
+                    <div class="gpu-fan relative grid h-16 w-16 place-items-center rounded-full sm:h-20 sm:w-20"><div class="h-9 w-9 rounded-full border border-cyber/50 bg-cyber/10"></div></div>
+                  </div>
+                  <div class="absolute bottom-3 left-3 right-3 flex justify-between text-[8px] font-bold tracking-[.18em] text-zinc-500"><span>NEXUS CORE</span><span>ARGB / SYNC</span></div>
+                </div>
+                <div class="mt-2 flex h-4 items-center justify-center gap-1"><span class="h-[2px] w-6 bg-neon shadow-[0_0_8px_#ff304f]"></span><span class="h-[2px] w-6 bg-cyber shadow-[0_0_8px_#9b7bff]"></span><span class="h-[2px] w-6 bg-mint shadow-[0_0_8px_#20e3a2]"></span></div>
+              </div>
+              <div class="absolute bottom-[12%] left-[5%] h-1.5 w-[30%] rounded-full bg-zinc-600/60 blur-sm"></div>
+              <div class="absolute right-[7%] top-[15%] rounded-xl border border-white/10 bg-black/50 p-3 backdrop-blur"><i data-lucide="zap" class="h-5 w-5 text-neon"></i><p class="mt-1 text-[9px] font-bold tracking-widest text-zinc-300">MAX POWER</p></div>
+              <div class="absolute bottom-[12%] right-[5%] rounded-xl border border-white/10 bg-black/50 p-3 backdrop-blur"><i data-lucide="activity" class="h-5 w-5 text-mint"></i><p class="mt-1 text-[9px] font-bold tracking-widest text-zinc-300">HIGH FPS</p></div>
+            </div>
+            <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+              <div class="rounded-xl bg-white/[.04] p-3"><i data-lucide="cpu" class="mx-auto h-4 w-4 text-neon"></i><p class="mt-2 text-[10px] font-semibold">CPU POWER</p></div>
+              <div class="rounded-xl bg-white/[.04] p-3"><i data-lucide="monitor" class="mx-auto h-4 w-4 text-cyber"></i><p class="mt-2 text-[10px] font-semibold">GPU READY</p></div>
+              <div class="rounded-xl bg-white/[.04] p-3"><i data-lucide="thermometer" class="mx-auto h-4 w-4 text-mint"></i><p class="mt-2 text-[10px] font-semibold">COOLING</p></div>
+            </div>
+          </div>
+          <div class="absolute -left-4 top-1/3 hidden rounded-xl border border-neon/20 bg-[#171217]/90 px-4 py-3 shadow-redglow sm:block"><p class="text-[9px] tracking-widest text-zinc-500">PERFORMANCE</p><p class="font-display text-xl font-bold text-neon">UNLOCKED</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top of the line -->
+    <section id="tope-gama" class="border-t border-white/[.06] py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div><p class="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-neon"><span class="h-px w-8 bg-neon"></span> Nivel entusiasta</p><h2 class="font-display text-4xl font-bold sm:text-5xl">TOPES DE <span class="text-gradient">GAMA.</span></h2><p class="mt-3 max-w-xl text-sm leading-6 text-zinc-500">Hardware diseñado para quienes buscan rendimiento extremo, altas tasas de cuadros y experiencias visuales de nueva generación.</p></div>
+          <span class="w-fit rounded-full border border-neon/20 bg-neon/[.07] px-4 py-2 text-xs font-bold text-rose-300">01 / PERFORMANCE</span>
+        </div>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="card glass overflow-hidden rounded-2xl border border-white/10 shadow-redglow">
+            <div class="component-visual relative flex h-48 items-center justify-center overflow-hidden">
+              <span class="absolute left-4 top-4 rounded-md bg-neon/15 px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-rose-300">Flagship CPU</span>
+              <div class="relative grid h-28 w-28 place-items-center rounded-2xl border border-white/20 bg-gradient-to-br from-zinc-700 to-zinc-950 shadow-2xl"><div class="grid h-20 w-20 place-items-center rounded-xl border border-neon/40 bg-black/60"><i data-lucide="cpu" class="h-10 w-10 text-neon"></i><span class="mt-1 text-[8px] font-bold tracking-widest">X SERIES</span></div></div>
+              <span class="absolute bottom-3 right-4 text-[9px] tracking-widest text-zinc-600">PROCESSING UNIT</span>
+            </div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">CPU de alto rendimiento</h3><p class="mt-2 text-sm leading-6 text-zinc-500">Procesadores insignia AMD Ryzen 9 / Intel Core Ultra 9 para gaming exigente y creación de contenido.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">Muchos núcleos</span><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">Boost elevado</span></div>
+              <div class="mt-6 flex items-center justify-between border-t border-white/10 pt-5"><span class="text-xs text-zinc-500">Refrigeración recomendada</span><span class="text-xs font-bold text-neon">Líquida 360 mm</span></div>
+            </div>
+          </article>
+          <article class="card glass overflow-hidden rounded-2xl border border-white/10 shadow-purpleglow">
+            <div class="cyber-visual relative flex h-48 items-center justify-center overflow-hidden">
+              <span class="absolute left-4 top-4 rounded-md bg-cyber/15 px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-violet-200">Next-gen graphics</span>
+              <div class="relative flex h-24 w-48 items-center justify-center rounded-xl border border-zinc-500/50 bg-gradient-to-r from-zinc-800 via-zinc-700 to-zinc-900 shadow-2xl"><div class="flex gap-3"><div class="gpu-fan relative grid h-16 w-16 place-items-center rounded-full border-cyber/50"><div class="h-10 w-10 rounded-full border border-cyber/50 bg-cyber/10"></div></div><div class="gpu-fan relative grid h-16 w-16 place-items-center rounded-full border-cyber/50"><div class="h-10 w-10 rounded-full border border-cyber/50 bg-cyber/10"></div></div></div><div class="absolute -bottom-2 left-5 right-5 h-1 rounded-full bg-cyber shadow-[0_0_12px_#9b7bff]"></div></div>
+              <span class="absolute bottom-3 right-4 text-[9px] tracking-widest text-zinc-600">GRAPHICS ENGINE</span>
+            </div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">GPU RTX serie 50</h3><p class="mt-2 text-sm leading-6 text-zinc-500">Gráficas de última generación para altas resoluciones, trazado de rayos y tecnologías de reescalado.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">4K Ray Tracing</span><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">DLSS</span></div>
+              <div class="mt-6 flex items-center justify-between border-t border-white/10 pt-5"><span class="text-xs text-zinc-500">Objetivo</span><span class="text-xs font-bold text-violet-300">Gaming 4K</span></div>
+            </div>
+          </article>
+          <article class="card glass overflow-hidden rounded-2xl border border-white/10">
+            <div class="relative flex h-48 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_40%,rgba(32,227,162,.14),transparent_60%),linear-gradient(145deg,#17201e,#101014)]">
+              <span class="absolute left-4 top-4 rounded-md bg-mint/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-emerald-200">Extreme memory</span>
+              <div class="flex gap-3"><div class="h-28 w-7 rounded-md border border-mint/30 bg-gradient-to-b from-zinc-500 to-zinc-900 shadow-[0_0_20px_rgba(32,227,162,.15)]"><div class="mx-auto mt-2 h-2 w-2 rounded-full bg-mint shadow-[0_0_8px_#20e3a2]"></div></div><div class="h-28 w-7 rounded-md border border-mint/30 bg-gradient-to-b from-zinc-500 to-zinc-900"><div class="mx-auto mt-2 h-2 w-2 rounded-full bg-mint"></div></div><div class="h-28 w-7 rounded-md border border-mint/30 bg-gradient-to-b from-zinc-500 to-zinc-900"><div class="mx-auto mt-2 h-2 w-2 rounded-full bg-mint"></div></div><div class="h-28 w-7 rounded-md border border-mint/30 bg-gradient-to-b from-zinc-500 to-zinc-900"><div class="mx-auto mt-2 h-2 w-2 rounded-full bg-mint"></div></div></div>
+              <span class="absolute bottom-3 right-4 text-[9px] tracking-widest text-zinc-600">DDR5 MEMORY</span>
+            </div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">Memoria DDR5 premium</h3><p class="mt-2 text-sm leading-6 text-zinc-500">Kits de alta frecuencia y baja latencia para plataformas modernas y multitarea intensiva.</p>
+              <div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">32–64 GB</span><span class="spec-chip rounded-md px-2.5 py-1.5 text-[10px] text-zinc-300">EXPO / XMP</span></div>
+              <div class="mt-6 flex items-center justify-between border-t border-white/10 pt-5"><span class="text-xs text-zinc-500">Configuración sugerida</span><span class="text-xs font-bold text-mint">Dual Channel</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Budget -->
+    <section id="economica" class="relative overflow-hidden border-y border-white/[.06] bg-[#0e1110] py-20 lg:py-28">
+      <div class="absolute -right-32 top-0 h-96 w-96 rounded-full bg-mint/10 blur-[100px]"></div>
+      <div class="relative mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div><p class="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-mint"><span class="h-px w-8 bg-mint"></span> Compra inteligente</p><h2 class="font-display text-4xl font-bold sm:text-5xl">MÁXIMO VALOR.<br><span class="text-mint-gradient">CERO DESPERDICIO.</span></h2><p class="mt-3 max-w-xl text-sm leading-6 text-zinc-500">Componentes eficientes para jugar en 1080p, estudiar, crear y actualizar tu PC paso a paso.</p></div>
+          <span class="w-fit rounded-full border border-mint/20 bg-mint/[.06] px-4 py-2 text-xs font-bold text-emerald-300">02 / SMART BUY</span>
+        </div>
+        <div class="grid gap-5 md:grid-cols-3">
+          <article class="card glass overflow-hidden rounded-2xl border border-mint/15 shadow-greenglow">
+            <div class="green-visual relative flex h-44 items-center justify-center"><span class="absolute left-4 top-4 rounded-md bg-mint/10 px-2.5 py-1 text-[9px] font-bold tracking-widest text-mint">SMART BUY</span><div class="grid h-24 w-24 place-items-center rounded-2xl border border-mint/30 bg-black/40"><i data-lucide="cpu" class="h-10 w-10 text-mint"></i></div></div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">CPU calidad-precio</h3><p class="mt-2 text-sm leading-6 text-zinc-500">Ryzen 5 o Core i5 de generaciones recientes: gran punto de partida para gaming y uso diario.</p><div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">6 núcleos o más</span><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">Buen upgrade path</span></div><p class="mt-5 border-t border-white/10 pt-4 text-xs font-semibold text-mint">Ideal para 1080p</p></div>
+          </article>
+          <article class="card glass overflow-hidden rounded-2xl border border-mint/15">
+            <div class="green-visual relative flex h-44 items-center justify-center"><span class="absolute left-4 top-4 rounded-md bg-mint/10 px-2.5 py-1 text-[9px] font-bold tracking-widest text-mint">BEST VALUE GPU</span><div class="flex h-20 w-40 items-center justify-center rounded-xl border border-mint/30 bg-gradient-to-r from-zinc-800 to-zinc-950 shadow-xl"><div class="gpu-fan relative grid h-14 w-14 place-items-center rounded-full border-mint/40"><div class="h-8 w-8 rounded-full border border-mint/40"></div></div></div></div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">GPU 1080p eficiente</h3><p class="mt-2 text-sm leading-6 text-zinc-500">Modelos como Radeon RX 7600 o GeForce RTX 4060/5050, según precio, stock y rendimiento real.</p><div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">Full HD</span><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">Buen consumo</span></div><p class="mt-5 border-t border-white/10 pt-4 text-xs font-semibold text-mint">Mejor relación precio/FPS</p></div>
+          </article>
+          <article class="card glass overflow-hidden rounded-2xl border border-mint/15">
+            <div class="green-visual relative flex h-44 items-center justify-center"><span class="absolute left-4 top-4 rounded-md bg-mint/10 px-2.5 py-1 text-[9px] font-bold tracking-widest text-mint">ESSENTIALS</span><div class="flex items-end gap-2"><div class="h-20 w-5 rounded border border-mint/30 bg-zinc-800"></div><div class="h-24 w-5 rounded border border-mint/30 bg-zinc-800"></div><div class="h-20 w-5 rounded border border-mint/30 bg-zinc-800"></div><div class="h-24 w-5 rounded border border-mint/30 bg-zinc-800"></div></div></div>
+            <div class="p-6"><h3 class="font-display text-2xl font-bold">RAM + SSD esenciales</h3><p class="mt-2 text-sm leading-6 text-zinc-500">16 GB en doble canal como base; 32 GB y SSD NVMe si el presupuesto permite más margen.</p><div class="mt-5 flex flex-wrap gap-2"><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">DDR4 / DDR5</span><span class="spec-chip rounded-md px-2 py-1.5 text-[10px]">NVMe</span></div><p class="mt-5 border-t border-white/10 pt-4 text-xs font-semibold text-mint">Actualiza cuando lo necesites</p></div>
+          </article>
+        </div>
+        <div class="mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl border border-mint/15 bg-mint/[.04] p-6 sm:flex-row sm:items-center">
+          <div class="flex items-start gap-4"><i data-lucide="badge-check" class="mt-1 h-6 w-6 shrink-0 text-mint"></i><div><h3 class="font-bold">La mejor compra no siempre es la más cara.</h3><p class="mt-1 text-sm text-zinc-500">Equilibra CPU, GPU, fuente y monitor para evitar cuellos de botella y gastos innecesarios.</p></div></div>
+          <a href="#calculadora" class="whitespace-nowrap text-sm font-bold text-mint hover:underline">Calcular mi presupuesto <i data-lucide="arrow-right" class="ml-1 inline h-4 w-4"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section id="comparativa" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-5 lg:px-8">
+        <div class="text-center"><p class="mb-3 text-xs font-bold uppercase tracking-[.22em] text-cyber">Encuentra tu balance</p><h2 class="font-display text-4xl font-bold sm:text-5xl">COMPARA. <span class="text-cyber-gradient">DECIDE.</span></h2><p class="mx-auto mt-3 max-w-xl text-sm leading-6 text-zinc-500">Cambia de perfil y compara el enfoque de cada configuración.</p></div>
+        <div class="mt-10 flex flex-wrap justify-center gap-2" role="group" aria-label="Filtrar configuraciones">
+          <button class="filter-tab tab-active rounded-lg border border-white/10 px-4 py-3 text-xs font-bold text-zinc-400 transition" data-profile="extreme">Presupuesto extremo</button>
+          <button class="filter-tab rounded-lg border border-white/10 px-4 py-3 text-xs font-bold text-zinc-400 transition" data-profile="mid">Gama media · Sweet spot</button>
+          <button class="filter-tab rounded-lg border border-white/10 px-4 py-3 text-xs font-bold text-zinc-400 transition" data-profile="budget">Presupuesto ajustado</button>
+        </div>
+        <div class="glass mt-6 overflow-hidden rounded-2xl">
+          <div class="flex flex-col justify-between gap-3 border-b border-white/10 p-6 sm:flex-row sm:items-center">
+            <div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-zinc-500">Perfil seleccionado</p><h3 id="profileTitle" class="mt-1 font-display text-2xl font-bold">POTENCIA EXTREMA</h3></div>
+            <span id="profileTag" class="w-fit rounded-full border border-cyber/30 bg-cyber/10 px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-violet-200">4K / Ultra</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[620px] text-left text-sm">
+              <thead class="bg-white/[.025] text-[10px] uppercase tracking-widest text-zinc-500"><tr><th class="px-6 py-4 font-semibold">Componente</th><th class="px-6 py-4 font-semibold">Configuración orientativa</th><th class="px-6 py-4 font-semibold">Objetivo</th></tr></thead>
+              <tbody id="comparisonRows" class="divide-y divide-white/[.06]">
+                <tr><td class="px-6 py-5 font-semibold">Procesador</td><td class="px-6 py-5 text-zinc-400">Ryzen 9 / Core Ultra 9</td><td class="px-6 py-5 text-violet-200">Alto rendimiento</td></tr>
+                <tr><td class="px-6 py-5 font-semibold">Tarjeta gráfica</td><td class="px-6 py-5 text-zinc-400">GeForce RTX 5080 / 5090</td><td class="px-6 py-5 text-violet-200">4K y Ray Tracing</td></tr>
+                <tr><td class="px-6 py-5 font-semibold">Memoria RAM</td><td class="px-6 py-5 text-zinc-400">32–64 GB DDR5</td><td class="px-6 py-5 text-violet-200">Multitarea avanzada</td></tr>
+                <tr><td class="px-6 py-5 font-semibold">Almacenamiento</td><td class="px-6 py-5 text-zinc-400">SSD NVMe 2 TB</td><td class="px-6 py-5 text-violet-200">Carga rápida</td></tr>
+                <tr><td class="px-6 py-5 font-semibold">Fuente</td><td class="px-6 py-5 text-zinc-400">850–1000 W de calidad</td><td class="px-6 py-5 text-violet-200">Potencia estable</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p id="profileNote" class="border-t border-white/10 px-6 py-4 text-xs leading-5 text-zinc-500">Configuración de referencia: verifica compatibilidad, consumo y disponibilidad antes de comprar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculator -->
+    <section id="calculadora" class="relative overflow-hidden border-y border-white/[.06] bg-[#101014] py-20 lg:py-28">
+      <div class="absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-neon/10 blur-[100px]"></div>
+      <div class="relative mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[.9fr_1.1fr] lg:px-8">
+        <div class="flex flex-col justify-center">
+          <p class="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-neon"><span class="h-px w-8 bg-neon"></span> Tu build, tus reglas</p>
+          <h2 class="font-display text-4xl font-bold sm:text-5xl">¿CUÁNTO QUIERES<br><span class="text-gradient">INVERTIR?</span></h2>
+          <p class="mt-5 max-w-md text-sm leading-7 text-zinc-500">Selecciona tu rango y el uso principal. Te mostramos una orientación inicial para que puedas planificar tu próxima configuración.</p>
+          <div class="mt-8 flex items-center gap-3 text-xs text-zinc-500"><i data-lucide="shield-check" class="h-5 w-5 text-mint"></i> Sin compromiso · Configuración orientativa</div>
+        </div>
+        <div class="glass rounded-2xl p-6 shadow-redglow sm:p-8">
+          <form id="budgetForm" class="space-y-6">
+            <div><label for="budget" class="mb-2 block text-xs font-bold uppercase tracking-widest text-zinc-400">Presupuesto aproximado (Gs.)</label><select id="budget" class="w-full rounded-xl border border-white/10 bg-[#0c0c10] px-4 py-4 text-sm text-white outline-none transition focus:border-neon"><option value="3000000">Hasta 3.000.000 Gs.</option><option value="5000000">3.000.000 – 5.000.000 Gs.</option><option value="8000000">5.000.000 – 8.000.000 Gs.</option><option value="12000000">8.000.000 – 12.000.000 Gs.</option><option value="15000000">Más de 12.000.000 Gs.</option></select></div>
+            <div><label for="use" class="mb-2 block text-xs font-bold uppercase tracking-widest text-zinc-400">¿Para qué la vas a usar?</label><select id="use" class="w-full rounded-xl border border-white/10 bg-[#0c0c10] px-4 py-4 text-sm text-white outline-none transition focus:border-neon"><option value="gaming">Gaming / esports</option><option value="creator">Gaming + creación de contenido</option><option value="work">Estudio y trabajo</option></select></div>
+            <div><label for="notes" class="mb-2 block text-xs font-bold uppercase tracking-widest text-zinc-400">Detalles adicionales <span class="font-normal normal-case tracking-normal text-zinc-600">(opcional)</span></label><textarea id="notes" rows="3" placeholder="Ej. Ya tengo monitor, necesito solo la torre..." class="w-full resize-none rounded-xl border border-white/10 bg-[#0c0c10] px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-700 focus:border-neon"></textarea></div>
+            <button type="submit" class="btn-primary flex w-full items-center justify-center gap-2 rounded-xl px-5 py-4 text-sm font-bold">Generar recomendación <i data-lucide="arrow-right" class="h-4 w-4"></i></button>
+          </form>
+          <div id="budgetResult" class="mt-5 hidden rounded-xl border border-mint/20 bg-mint/[.06] p-5" aria-live="polite">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-mint">Tu punto de partida</p><h3 id="resultTitle" class="mt-2 font-display text-2xl font-bold"></h3><p id="resultText" class="mt-2 text-sm leading-6 text-zinc-400"></p><button id="resultQuote" class="mt-4 text-sm font-bold text-mint hover:underline">Solicitar cotización <i data-lucide="arrow-up-right" class="ml-1 inline h-4 w-4"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-5 py-20 lg:px-8 lg:py-24">
+      <div class="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-neon/20 bg-gradient-to-br from-[#241117] via-[#171116] to-[#111117] p-8 sm:p-12 lg:p-16">
+        <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-neon/20 blur-[90px]"></div>
+        <div class="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div><p class="text-xs font-bold uppercase tracking-[.22em] text-rose-300">Ready when you are</p><h2 class="mt-3 font-display text-4xl font-bold sm:text-5xl">TU PRÓXIMA PC<br>EMPIEZA <span class="text-gradient">AQUÍ.</span></h2><p class="mt-4 max-w-lg text-sm leading-6 text-zinc-400">Cuéntanos qué necesitas y prepara una configuración equilibrada para tus juegos y tu presupuesto.</p></div>
+          <button data-open-quote class="btn-primary inline-flex shrink-0 items-center gap-3 rounded-xl px-7 py-4 text-sm font-bold">Cotizar mi PC <i data-lucide="arrow-up-right" class="h-4 w-4"></i></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/[.07] bg-[#08080a]">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div class="sm:col-span-2"><a href="#inicio" class="inline-flex items-center gap-3"><span class="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-neon to-orange-500"><i data-lucide="cpu" class="h-5 w-5"></i></span><span class="font-display text-xl font-bold tracking-widest">NEXUS<span class="text-neon">.</span> PC</span></a><p class="mt-4 max-w-sm text-sm leading-6 text-zinc-500">Hardware elegido con criterio. Rendimiento para cada objetivo y opciones para cada presupuesto.</p></div>
+      <div><h3 class="text-xs font-bold uppercase tracking-widest text-zinc-300">Explorar</h3><div class="mt-4 flex flex-col gap-3 text-sm text-zinc-500"><a class="hover:text-white" href="#tope-gama">Topes de gama</a><a class="hover:text-white" href="#economica">Gama económica</a><a class="hover:text-white" href="#comparativa">Comparativa</a><a class="hover:text-white" href="#calculadora">Calculadora</a></div></div>
+      <div><h3 class="text-xs font-bold uppercase tracking-widest text-zinc-300">Conecta</h3><div class="mt-4 flex flex-col gap-3 text-sm text-zinc-500"><a href="#calculadora" class="hover:text-white">Solicitar cotización</a><a href="#inicio" class="hover:text-white">Volver arriba ↑</a></div></div>
+    </div>
+    <div class="border-t border-white/[.06]"><div class="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-5 py-5 text-[11px] text-zinc-600 sm:flex-row lg:px-8"><p>© <span id="year"></span> NEXUS PC. Todos los derechos reservados.</p><p>Diseño responsive · HTML + Tailwind CDN · Listo para Render Static Site</p></div></div>
+  </footer>
+
+  <!-- Quote dialog -->
+  <div id="quoteModal" class="modal-backdrop fixed inset-0 z-[70] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="quoteTitle">
+    <div class="glass w-full max-w-lg rounded-2xl p-6 shadow-2xl sm:p-8">
+      <div class="flex items-start justify-between"><div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-neon">Nexus PC / Contacto</p><h2 id="quoteTitle" class="mt-2 font-display text-3xl font-bold">COTIZA TU BUILD.</h2></div><button id="closeModal" class="rounded-lg border border-white/10 p-2 text-zinc-400 hover:text-white" aria-label="Cerrar"><i data-lucide="x"></i></button></div>
+      <p class="mt-3 text-sm leading-6 text-zinc-500">Completa tus datos y copia el resumen para enviarlo por tu canal de contacto preferido.</p>
+      <form id="quoteForm" class="mt-6 space-y-4">
+        <div><label for="customerName" class="mb-2 block text-xs font-semibold text-zinc-400">Tu nombre</label><input id="customerName" required maxlength="70" class="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm outline-none focus:border-neon" placeholder="Nombre"></div>
+        <div><label for="customerContact" class="mb-2 block text-xs font-semibold text-zinc-400">Email o teléfono</label><input id="customerContact" required maxlength="100" class="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm outline-none focus:border-neon" placeholder="Cómo podemos contactarte"></div>
+        <div><label for="customerBuild" class="mb-2 block text-xs font-semibold text-zinc-400">¿Qué necesitas?</label><textarea id="customerBuild" rows="3" maxlength="500" class="w-full rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-sm outline-none focus:border-neon" placeholder="Presupuesto, juegos, componentes que ya tienes..."></textarea></div>
+        <button class="btn-primary w-full rounded-lg px-5 py-4 text-sm font-bold" type="submit">Preparar solicitud <i data-lucide="copy" class="ml-1 inline h-4 w-4"></i></button>
+      </form>
+      <p id="quoteFeedback" class="mt-3 hidden text-xs text-mint" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script>
+    // Comparison profiles: easy to maintain and extend.
+    const profiles = {
+      extreme: {
+        title: 'POTENCIA EXTREMA', tag: '4K / ULTRA', note: 'Configuración de referencia: verifica compatibilidad, consumo y disponibilidad antes de comprar.',
+        rows: [
+          ['Procesador','Ryzen 9 / Core Ultra 9','Alto rendimiento'],
+          ['Tarjeta gráfica','GeForce RTX 5080 / 5090','4K y Ray Tracing'],
+          ['Memoria RAM','32–64 GB DDR5','Multitarea avanzada'],
+          ['Almacenamiento','SSD NVMe 2 TB','Carga rápida'],
+          ['Fuente','850–1000 W de calidad','Potencia estable']
+        ]
+      },
+      mid: {
+        title: 'EL PUNTO IDEAL', tag: '1440P / HIGH FPS', note: 'Sweet spot orientativo: busca el mejor equilibrio de precio y rendimiento en tu mercado local.',
+        rows: [
+          ['Procesador','Ryzen 5 / Ryzen 7 o Core i5','Gaming fluido'],
+          ['Tarjeta gráfica','RTX 5070 / RX 9070 o similar','1440p de calidad'],
+          ['Memoria RAM','32 GB DDR5','Gaming + multitarea'],
+          ['Almacenamiento','SSD NVMe 1 TB','Espacio y velocidad'],
+          ['Fuente','650–750 W certificada','Margen de actualización']
+        ]
+      },
+      budget: {
+        title: 'GAMING INTELIGENTE', tag: '1080P / VALUE', note: 'Prioriza una GPU equilibrada y una fuente confiable. Los precios locales pueden cambiar la mejor elección.',
+        rows: [
+          ['Procesador','Ryzen 5 5600 / equivalente','Gran valor'],
+          ['Tarjeta gráfica','RX 7600 / RTX 4060 / RTX 5050','1080p'],
+          ['Memoria RAM','16 GB dual channel (ideal 32 GB)','Base para gaming'],
+          ['Almacenamiento','SSD NVMe 500 GB–1 TB','Sistema y juegos'],
+          ['Fuente','550–650 W de buena calidad','Estabilidad']
+        ]
+      }
+    };
+
+    const rowsEl = document.getElementById('comparisonRows');
+    function setProfile(key) {
+      const profile = profiles[key];
+      document.getElementById('profileTitle').textContent = profile.title;
+      document.getElementById('profileTag').textContent = profile.tag;
+      document.getElementById('profileNote').textContent = profile.note;
+      rowsEl.innerHTML = profile.rows.map(row => `
+        <tr>
+          <td class="px-6 py-5 font-semibold">${row[0]}</td>
+          <td class="px-6 py-5 text-zinc-400">${row[1]}</td>
+          <td class="px-6 py-5 text-violet-200">${row[2]}</td>
+        </tr>`).join('');
+      document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.toggle('tab-active', btn.dataset.profile === key));
+    }
+    document.querySelectorAll('.filter-tab').forEach(btn => btn.addEventListener('click', () => setProfile(btn.dataset.profile)));
+
+    // Mobile navigation.
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden', expanded);
+      menuBtn.innerHTML = expanded ? '<i data-lucide="menu"></i>' : '<i data-lucide="x"></i>';
+      lucide.createIcons();
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.innerHTML = '<i data-lucide="menu"></i>'; lucide.createIcons();
+    }));
+
+    // Budget calculator returns a practical starting point, not a live quote.
+    const budgetForm = document.getElementById('budgetForm');
+    budgetForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const amount = Number(document.getElementById('budget').value);
+      const usage = document.getElementById('use').value;
+      const notes = document.getElementById('notes').value.trim();
+      let title, recommendation;
+      if (amount <= 3000000) {
+        title = 'Base sólida y actualizable';
+        recommendation = 'Prioriza una plataforma equilibrada, 16 GB en doble canal, SSD y una fuente confiable. Si ya tienes gráficos integrados, puedes planificar la GPU dedicada como siguiente mejora.';
+      } else if (amount <= 5000000) {
+        title = 'Gaming 1080p equilibrado';
+        recommendation = 'Busca un procesador de 6 núcleos, una GPU de entrada eficiente, 16–32 GB de RAM y SSD NVMe. Compara precios de RX 7600, RTX 4060 o alternativas disponibles.';
+      } else if (amount <= 8000000) {
+        title = 'Sweet spot para jugar';
+        recommendation = 'Apunta a una GPU de gama media, CPU moderna de 6–8 núcleos, 32 GB de RAM y SSD de 1 TB. Es una base versátil para altas tasas de FPS en Full HD y jugar en 1440p según el título.';
+      } else if (amount <= 12000000) {
+        title = 'Gaming avanzado';
+        recommendation = 'Puedes equilibrar una GPU de gama media-alta, CPU potente, 32 GB DDR5, SSD NVMe de 1–2 TB y una fuente de calidad con margen para futuras mejoras.';
+      } else {
+        title = 'Build entusiasta';
+        recommendation = 'Considera una GPU de alto rendimiento, CPU de gama alta, 32–64 GB DDR5, almacenamiento rápido y refrigeración adecuada. Reserva parte del presupuesto para monitor y periféricos si aún los necesitas.';
+      }
+      if (usage === 'creator') recommendation += ' Para creación de contenido, prioriza también núcleos de CPU, memoria y VRAM.';
+      if (usage === 'work') recommendation += ' Para estudio y trabajo, prioriza SSD, memoria suficiente y un procesador eficiente antes de gastar de más en la GPU.';
+      if (notes) recommendation += ' Nota: ' + notes;
+      document.getElementById('resultTitle').textContent = title;
+      document.getElementById('resultText').textContent = recommendation;
+      document.getElementById('budgetResult').classList.remove('hidden');
+      document.getElementById('budgetResult').scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+
+    // Quote dialog and copy-to-clipboard flow.
+    const modal = document.getElementById('quoteModal');
+    const openModal = () => { modal.classList.remove('hidden'); modal.classList.add('flex'); document.getElementById('customerName').focus(); };
+    const closeModal = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); };
+    document.querySelectorAll('[data-open-quote]').forEach(btn => btn.addEventListener('click', openModal));
+    document.getElementById('resultQuote').addEventListener('click', openModal);
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+    document.getElementById('quoteForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const name = document.getElementById('customerName').value.trim();
+      const contact = document.getElementById('customerContact').value.trim();
+      const details = document.getElementById('customerBuild').value.trim();
+      const summary = `Solicitud de cotización — NEXUS PC\nNombre: ${name}\nContacto: ${contact}\nDetalles: ${details || 'A conversar'}`;
+      const feedback = document.getElementById('quoteFeedback');
+      try {
+        await navigator.clipboard.writeText(summary);
+        feedback.textContent = '¡Resumen copiado! Ya puedes pegarlo en tu email o mensajería.';
+      } catch {
+        feedback.textContent = 'No se pudo copiar automáticamente. Puedes seleccionar y copiar tus datos manualmente.';
+      }
+      feedback.classList.remove('hidden');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
